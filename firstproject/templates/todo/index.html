@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1>Index !</h1>
+<a href="/todo/create/" class="m-2 flex justify-end">
+    <button class="bg-green-600 p-2 rounded-full text-white">새로 작성하기</button>
+</a>
+<ul>
+    {% for todo in todos %}
+    <li class="p-2 border-b">
+        <div>
+            제목 :
+            <a href="/todo/{{ todo.id }}">
+                {{ todo.title }}
+            </a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

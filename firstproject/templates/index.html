@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+</head>
+
+<body>
+    <h1> Index </h1>
+    <p> {{ name }}님 반갑습니다 !
+    <p>
+    <form action="/getdata/" method="POST">
+        {%csrf_token%}
+        <input type="text" name="to-do">
+        <button type="submit">입력</button>
+    </form>
+</body>
+
+</html>

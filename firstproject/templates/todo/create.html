@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>todo를 작성해 주세요~!</h1>
+<form action="/todo/create/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    제목 : <input type="text" name="title" id="title">
+    <br>
+    내용 : <input type="text" name="content" id="content">
+    <br><br>
+    <input type="file" name="image" id="image">
+    <button type="submit">만들기</button>
+</form>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>-- 내용 --</h1>
+<ul>
+    <div>
+        <img src="/media/{{ content.image }}/" alt="">
+    </div>
+    <br>
+    <li>
+        <div>
+            {{ content.content }}
+        </div>
+        <br>
+        <div>
+            작성자 : {{ content.user }}
+        </div>
+        <br>
+        <div>
+            작성 시간 : {{ content.create_at }}
+        </div>
+        <div>
+            수정 시간 : {{ content.update_at }}
+        </div>
+    </li>
+</ul>
+{% if request.user == content.user %}
+<a href="/todo/create/">
+    <button>새 게시글 작성하기</button>
+</a>
+<a href="/todo/update/{{ content.id }}">
+    <button>게시글 수정하기</button>
+</a>
+<br><br>
+<form action="/todo/delete/{{ content.id }}/" method="post">
+    {% csrf_token %}
+    <button>삭제하기</button>
+</form>
+<br>
+{% endif %}
+<button onclick="location.href='http://127.0.0.1:8000/todo/'">
+    돌아가기
+</button>
+<button onclick="window.open('http://127.0.0.1:8000/todo/')">
+    새창으로 돌아가기
+</button>
+
+
+{% endblock %}

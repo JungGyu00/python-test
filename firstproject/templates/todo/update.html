@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>앙 수정띠~</h1>
+<form action="/todo/update/{{ content.id }}/" method="POST">
+    {% csrf_token %}
+    <input type="text" name="update" id="update" value="{{ content.content }}">
+    <button type="submit">수정하기</button>
+</form>
+
+
+{% endblock %}
